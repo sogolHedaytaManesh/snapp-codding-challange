@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "cda8da09-6de1-48a3-9ca9-ce16c0b083d9",
+		"name": "Snapp!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2421588"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = pm.response.json();",
+									"pm.environment.set('token', res.meta.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile",
+									"value": "09127641597",
+									"type": "text"
+								},
+								{
+									"key": "verification_code",
+									"value": "3333",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "mobile",
+											"value": "09127641597",
+											"type": "text"
+										},
+										{
+											"key": "verification_code",
+											"value": "3333",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.14"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Dec 2023 15:40:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"first_name\": \"نازنین\",\n        \"last_name\": \"شهرزاد نژاد\",\n        \"mobile\": \"09127641597\"\n    },\n    \"meta\": {\n        \"token\": \"1|Z1iiwA4yybrbOYsAUTIbsg0gN70GLxvuTtbfW1Q9c606276d\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "OTP",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile\": \"09127641597\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost/api/auth/otp",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"otp"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OTP",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobile\": \"09127641597\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/otp",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"otp"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.14"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Dec 2023 15:39:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}"
+						},
+						"url": {
+							"raw": "localhost/api/auth/logout",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asset",
+			"item": [
+				{
+					"name": "Transfer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sender_cart_number",
+									"value": "6362141122844054",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "receiver_cart_number",
+									"value": "6219861050344604",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/api/assets/transfer",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"assets",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "The Most Transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sender_cart_number",
+									"value": "۶۳۶۲۱۴۱۱۲۲۸۴۴۰۵۴",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "receiver_cart_number",
+									"value": "6219861050344604",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/api/assets/the-most-transactions",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"assets",
+								"the-most-transactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The Most Transactions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "sender_cart_number",
+											"value": "۶۳۶۲۱۴۱۱۲۲۸۴۴۰۵۴",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "1000",
+											"type": "text"
+										},
+										{
+											"key": "receiver_cart_number",
+											"value": "6219861050344604",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/assets/the-most-transactions",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"assets",
+										"the-most-transactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.14"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 27 Dec 2023 13:17:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"first_name\": \"Maximilian\",\n            \"last_name\": \"Sauer\",\n            \"mobile\": \"09127641597\",\n            \"total_transactions\": \"10\",\n            \"transactions\": [\n                {\n                    \"id\": 1,\n                    \"ref_id\": \"eeeee\",\n                    \"amount\": 10,\n                    \"status\": \"success\",\n                    \"created_at\": \"2023-12-27T13:16:55.000000Z\",\n                    \"updated_at\": \"2023-12-27T08:27:33.000000Z\"\n                },\n                {\n                    \"id\": 2,\n                    \"ref_id\": \"eeee\",\n                    \"amount\": 10,\n                    \"status\": \"success\",\n                    \"created_at\": \"2023-12-27T08:27:33.000000Z\",\n                    \"updated_at\": \"2023-12-27T08:27:33.000000Z\"\n                },\n                {\n                    \"id\": 3,\n                    \"ref_id\": \"33\",\n                    \"amount\": 10,\n                    \"status\": \"success\",\n                    \"created_at\": \"2023-12-27T08:27:33.000000Z\",\n                    \"updated_at\": \"2023-12-27T08:27:33.000000Z\"\n                },\n                {\n                    \"id\": 4,\n                    \"ref_id\": \"vv\",\n                    \"amount\": 20,\n                    \"status\": \"success\",\n                    \"created_at\": \"2023-12-27T08:27:33.000000Z\",\n                    \"updated_at\": \"2023-12-27T08:27:33.000000Z\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
