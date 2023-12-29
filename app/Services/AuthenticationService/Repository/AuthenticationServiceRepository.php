@@ -14,11 +14,6 @@ class AuthenticationServiceRepository implements AuthenticationServiceInterface
         return $user ?: null;
     }
 
-    public function otp(array $parameters): ?User
-    {
-        // TODO: Implement otp() method.
-    }
-
     public function update(User $user, array $parameters): bool
     {
         return $user->update($parameters);
@@ -29,7 +24,7 @@ class AuthenticationServiceRepository implements AuthenticationServiceInterface
         /** @var User $user */
         $user = Auth::user();
 
-        return $user->currentAccessToken()->delete();
+        return $user->tokens()->delete();
     }
 
     public function makeToken(User $user): string

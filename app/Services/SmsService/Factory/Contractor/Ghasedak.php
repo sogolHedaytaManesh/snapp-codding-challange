@@ -9,13 +9,13 @@ class Ghasedak extends Base
         parent::sendOtp($mobileNumber, $message);
     }
 
-	public static function sendWithdrawTransactionMessage($mobileNumber, $balance): void
-	{
-		//
-	}
+    public static function sendWithdrawTransactionMessage($mobileNumber, $balance): void
+    {
+        //
+    }
 
-	public static function sendDepositTransactionMessage($mobileNumber, $balance): void
-	{
-		//
-	}
+    public static function sendDepositTransactionMessage($mobileNumber, $balance): void
+    {
+        //
+    }
 }

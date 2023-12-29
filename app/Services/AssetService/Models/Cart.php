@@ -21,7 +21,7 @@ class Cart extends Model
         'cart_number',
     ];
 
-    protected $casts = [
-        'status' => CartStatusEnum::class,
-    ];
+    //    protected $casts = [
+    //        'status' => CartStatusEnum::class,
+    //    ];
 }

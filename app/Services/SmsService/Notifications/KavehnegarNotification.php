@@ -11,7 +11,8 @@ class KavehnegarNotification extends KavenegarBaseNotification implements Should
 {
     use Queueable;
 
-    protected  string $data;
+    protected string $data;
+
     public function __construct($data)
     {
         $this->data = $data;
