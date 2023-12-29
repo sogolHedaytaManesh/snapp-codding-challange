@@ -15,6 +15,7 @@ Please make a copy from `.env.exmple` and remove it's suffix then Just run the s
 * if you cant receive top message please use `3333` integer value for  your `verification_code`, I have set hard code value for it.
 * I have used DB Transaction and Cache lock to avoid concurrency
 * there is a json file in root of the project to import to the postman (Snapp!.postman_collection.json)
+* I made some feature tests for project to get familiar  with my testing method.
 
 best regards in advance :)
 
