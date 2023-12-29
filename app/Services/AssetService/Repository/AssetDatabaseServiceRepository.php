@@ -9,13 +9,18 @@ use App\Services\AssetService\Models\Cart;
 use App\Services\AssetService\Models\Wage;
 use App\Services\AssetService\Repository\Base\AssetServiceBaseInterface;
 use App\Services\AuthenticationService\Models\User;
-use App\Services\SmsService\Repository\SmsServiceRepository;
+use App\Services\SmsService\Repository\SmsServiceInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class AssetDatabaseServiceRepository implements AssetServiceBaseInterface
 {
+    public function __construct(public readonly SmsServiceInterface $smsService
+    ) {
+        //
+    }
+
     public function CheckCartNumberAvailability(string $cartNumber): bool
     {
         return Cart::query()->where(['cart_number' => $cartNumber])->exists();
@@ -90,14 +95,12 @@ class AssetDatabaseServiceRepository implements AssetServiceBaseInterface
 
         $lock->release();
 
-        $sms = new SmsServiceRepository();
-
-        $sms::sendWithdrawTransactionMessage(
+        $this->smsService::sendWithdrawTransactionMessage(
             mobileNumber: $senderAccountNumber->user->mobile,
             balance: $senderAccountNumber->balance
         );
 
-        $sms::sendDepositTransactionMessage(
+        $this->smsService::sendDepositTransactionMessage(
             mobileNumber: $receiverAccountNumber->user->mobile,
             balance: $senderAccountNumber->balance
         );
