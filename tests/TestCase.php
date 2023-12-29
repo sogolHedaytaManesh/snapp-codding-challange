@@ -2,7 +2,8 @@
 
 namespace Tests;
 
-use App\Models\User;
+use App\Services\AuthenticationService\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -12,12 +13,12 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication;
     use RefreshDatabase;
     use WithFaker;
-    //
-    //	protected function makeUser(int $times = 1): Factory
-    //	{
-    //		return $times > 1 ? User::factory($times) : User::factory();
-    //	}
-    //
+
+    protected function makeUser(int $times = 1): Factory
+    {
+        return $times > 1 ? User::factory($times) : User::factory();
+    }
+
     //	protected function makeAccountNumber(User $user, int $times = 1): Factory
     //	{
     //		$user = $user ?? $this->makeUser()->create();

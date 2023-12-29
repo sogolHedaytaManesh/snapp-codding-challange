@@ -14,18 +14,17 @@ class KavehNegar extends Base
         Notification::send($mobileNumber, new KavehnegarNotification($text));
     }
 
+    public static function sendWithdrawTransactionMessage($mobileNumber, $balance): void
+    {
+        $text = str_replace('%s', $balance, 'موجودی حساب پس از کاهش موجودی: %s');
 
-	public static function sendWithdrawTransactionMessage($mobileNumber, $balance): void
-	{
-		$text = str_replace('%s', $balance, 'موجودی حساب پس از کاهش موجودی: %s');
+        Notification::send($mobileNumber, new KavehnegarNotification($text));
+    }
 
-		Notification::send($mobileNumber, new KavehnegarNotification($text));
-	}
+    public static function sendDepositTransactionMessage($mobileNumber, $balance): void
+    {
+        $text = str_replace('%s', $balance, 'موجودی حساب پس از افزایش موجودی: %s');
 
-	public static function sendDepositTransactionMessage($mobileNumber, $balance): void
-	{
-		$text = str_replace('%s', $balance, 'موجودی حساب پس از افزایش موجودی: %s');
-
-		Notification::send($mobileNumber, new KavehnegarNotification($text));
-	}
+        Notification::send($mobileNumber, new KavehnegarNotification($text));
+    }
 }

@@ -12,27 +12,27 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-	use HasApiTokens,
-		HasFactory,
-		SoftDeletes,
-		UserRelationsTrait,
-		UserScopeTrait;
+    use HasApiTokens,
+        HasFactory,
+        SoftDeletes,
+        UserRelationsTrait,
+        UserScopeTrait;
 
-	protected $fillable = [
-		'first_name',
-		'last_name',
-		'mobile',
-		'verification_code',
-	];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'mobile',
+        'verification_code',
+    ];
 
-	protected $hidden = [
-		'deleted_at',
-		'verification_code',
-		'remember_token',
-	];
+    protected $hidden = [
+        'deleted_at',
+        'verification_code',
+        'remember_token',
+    ];
 
-	protected static function factory(): UserFactory
-	{
-		return UserFactory::new();
-	}
+    protected static function factory(): UserFactory
+    {
+        return UserFactory::new();
+    }
 }

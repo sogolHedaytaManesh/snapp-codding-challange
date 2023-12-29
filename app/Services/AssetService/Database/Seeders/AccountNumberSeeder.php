@@ -3,7 +3,6 @@
 namespace App\Services\AssetService\Database\Seeders;
 
 use App\Services\AssetService\Models\AccountNumber;
-use App\Services\AssetService\Models\Cart;
 use App\Services\AuthenticationService\Models\User;
 use Illuminate\Database\Seeder;
 

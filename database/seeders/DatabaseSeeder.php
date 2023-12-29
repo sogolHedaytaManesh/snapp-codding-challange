@@ -10,13 +10,13 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-	public function run(): void
-	{
-		$this->call([
-			UserSeeder::class,
-			AccountNumberSeeder::class,
-			CartSeeder::class,
-			TransactionSeeder::class
-		]);
-	}
+    public function run(): void
+    {
+        $this->call([
+            UserSeeder::class,
+            AccountNumberSeeder::class,
+            CartSeeder::class,
+            TransactionSeeder::class,
+        ]);
+    }
 }
